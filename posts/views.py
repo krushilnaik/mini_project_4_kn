@@ -1,10 +1,12 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
+from .forms import PostForm
 from .models import Post
 
 
 # Create your views here.
-def index():
+def index(request):
     """
     Return all posts
     """
@@ -12,25 +14,34 @@ def index():
     return Post.objects.all()
 
 
-def create():
+def create(request):
     """
     /create
     """
 
-    return "TBA"
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        form.author = request.user
+
+        if form.is_valid():
+            form.save()
+    else:
+        form = PostForm()
+
+    return render(request, 'create.html', {'form': form})
 
 
-def edit():
+def edit(request):
     """
     /edit/:post_id
     """
 
-    return "TBA"
+    return HttpResponse("TBA")
 
 
-def delete():
+def delete(request):
     """
     /delete/:post_id
     """
 
-    return "TBA"
+    return HttpResponse("TBA")

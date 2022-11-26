@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: dotted 1px white; */
+}
+
+a {
+  color: crimson;
+  text-decoration: none;
+  transition: color 300ms;
+  font-weight: bold;
+}
+
+a:hover {
+  color: rgb(245, 101, 130);
+}
+
+body {
+  background-color: #12131d;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+main,
+footer {
+  padding: 12px;
+  width: 100%;
+  margin: auto;
+  max-width: 1280px;
+}
+
+h2 {
+  color: crimson;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 2rem;
+}
+
+nav span {
+  color: honeydew;
+}
+
+nav > a {
+  font-size: 2rem;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  text-align: center;
+  color: rgba(255, 172, 188, 0.536);
+}
+
+form {
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+form button {
+  width: fit-content;
+}
+
+label {
+  color: honeydew;
+}
+
+input,
+textarea {
+  border-radius: 8px;
+  background-color: transparent;
+  color: honeydew;
+  padding: 4px 8px;
+  border: solid 2px rgba(255, 255, 255, 0.205);
+  margin-bottom: 1em;
+}
+
+main > h2 {
+  margin-bottom: 1em;
+}
+
+article {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: rgba(231, 128, 128, 0.318);
+  color: honeydew;
+}
+
+h3 span {
+  font-size: 0.6em;
+  color: rgba(240, 255, 240, 0.636);
+}
+
+.posts {
+  padding: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 16px;
+}

@@ -1,0 +1,24 @@
+{% extends "./base.html" %}
+
+{% block content %}
+  <ul class="posts">
+    {% for post in posts %}
+      <li>
+        <article>
+          <h3>{{ post['title'] }} <span>by {{ post['username'] }} on {{ post['created'].strftime('%m/%d/%Y') }}</span></h3>
+
+          <hr>
+
+          <p>{{ post['body'] }}</p>
+          <div>
+            {% if g.user['id'] == post['author_id'] %}
+              <a class="btn btn-secondary" href="{{ url_for('blog.edit', id=post['id']) }}">
+                Edit
+              </a>
+            {% endif %}
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

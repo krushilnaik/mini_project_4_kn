@@ -1,12 +1,13 @@
 # Create your models here.
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 
 class Post(models.Model):
     """Post model"""
 
-    created = models.DateTimeField()
+    created = models.DateTimeField(default=timezone.now())
     title = models.CharField(max_length=64)
-    body = models.CharField(max_length=1200)
-    author_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)

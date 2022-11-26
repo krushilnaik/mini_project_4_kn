@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{title}} - Pytter</title>
+
+    {# bootstrap stuff #}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+      integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js"
+      integrity="sha512-BOsvKbLb0dB1IVplOL9ptU1EYA+LuCKEluZWRUYG73hxqNBU85JBIBhPGwhQl7O633KtkjMv8lvxZcWP+N3V3w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    {# custom styling #}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="">Pytter</a></h1>
+
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+            <li>
+              <span style="opacity: 0.6;">Welcome, {{ user }}!</span>
+            </li>
+            <li>
+              <a href="">New Post</a>
+            </li>
+            <li>
+              <a href="">Log Out</a>
+            </li>
+          {% else %}
+            <li><a href="">Register</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>{{title}}</h2>
+      <div>{% block content %}{% endblock %}</div>
+    </main>
+
+    <footer>Krushil Naik | INF-601 Mini Project 4</footer>
+  </body>
+</html>
