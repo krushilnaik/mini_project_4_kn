@@ -5,14 +5,14 @@
     {% for post in posts %}
       <li>
         <article>
-          <h3>{{ post['title'] }} <span>by {{ post['username'] }} on {{ post['created'].strftime('%m/%d/%Y') }}</span></h3>
+          <h3>{{ post.title }} <span>by {{ post.username }} on {{ post.created }}</span></h3>
 
           <hr>
 
-          <p>{{ post['body'] }}</p>
+          <p>{{ post.body }}</p>
           <div>
-            {% if g.user['id'] == post['author_id'] %}
-              <a class="btn btn-secondary" href="{{ url_for('blog.edit', id=post['id']) }}">
+            {% if user.id == post.author_id %}
+              <a class="btn btn-secondary" href="">
                 Edit
               </a>
             {% endif %}

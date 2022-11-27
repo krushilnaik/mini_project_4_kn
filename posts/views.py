@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .forms import PostForm
 from .models import Post
@@ -11,7 +11,9 @@ def index(request):
     Return all posts
     """
 
-    return Post.objects.all()
+    posts = Post.objects.all()
+
+    return render(request, 'index.html', {'posts': posts})
 
 
 def create(request):
@@ -21,10 +23,12 @@ def create(request):
 
     if request.method == "POST":
         form = PostForm(request.POST)
-        form.author = request.user
 
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('/posts')
     else:
         form = PostForm()
 

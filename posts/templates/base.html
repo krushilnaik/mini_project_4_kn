@@ -40,10 +40,10 @@
               <span style="opacity: 0.6;">Welcome, {{ user }}!</span>
             </li>
             <li>
-              <a href="">New Post</a>
+              <a href="{% url 'create' %}">New Post</a>
             </li>
             <li>
-              <a href="">Log Out</a>
+              <a href="{% url 'logout' %}">Log Out</a>
             </li>
           {% else %}
             <li><a href="">Register</a></li>

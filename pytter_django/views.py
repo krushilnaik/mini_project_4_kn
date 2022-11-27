@@ -1,6 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect
 
 
 def index(request):
-    return HttpResponse('<h1>Hi</h1>')
+    return redirect('/posts')
