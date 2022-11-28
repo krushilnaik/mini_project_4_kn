@@ -53,9 +53,12 @@ def edit(request, post_id):
     return render(request, 'edit.html', {'post': post, 'form': form})
 
 
-def delete(request):
+def delete(request, post_id):
     """
     /delete/:post_id
     """
 
-    return HttpResponse("TBA")
+    post = Post.objects.get(id=post_id)
+    post.delete()
+
+    return redirect('home')
