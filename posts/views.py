@@ -35,12 +35,22 @@ def create(request):
     return render(request, 'create.html', {'form': form})
 
 
-def edit(request):
+def edit(request, post_id):
     """
     /edit/:post_id
     """
+    post = Post.objects.get(id=post_id)
 
-    return HttpResponse("TBA")
+    if request.method == "POST":
+        form = PostForm(instance=post, data=request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    form = PostForm(instance=post)
+
+    return render(request, 'edit.html', {'post': post, 'form': form})
 
 
 def delete(request):

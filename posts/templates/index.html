@@ -12,7 +12,7 @@
           <p>{{ post.body }}</p>
           <div>
             {% if user.id == post.author_id %}
-              <a class="btn btn-secondary" href="">
+              <a class="btn btn-secondary" href="{% url 'edit' post.id %}">
                 Edit
               </a>
             {% endif %}

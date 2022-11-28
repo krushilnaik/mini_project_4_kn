@@ -1,17 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form method="post">
-    <label for="title">Title</label>
-    <input
-      name="title"
-      id="title"
-      value="{{ request.form['title'] or post['title'] }}"
-      required
-    />
+  <form action="{% url 'edit' post.id %}" method="post">
+    {% csrf_token %}
 
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+    {{ form }}
 
     <div class="controls">
       <button class="btn btn-success" type="submit">Save</button>
@@ -54,7 +47,7 @@
             Cancel
           </button>
 
-          <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+          <form action="" method="post">
             <button
               type="submit"
               class="btn btn-danger"
