@@ -12,7 +12,12 @@ This project introduces us to Django as an alternative to Flask.
 
 ## Usage
 
-Seed the database with `python ./manage.py migrate` and `python ./manage.py makemigrations`
+To initialize the database, run:
+
+```
+python ./manage.py makemigrations
+python ./manage.py migrate
+```
 
 Run the app with `python ./manage.py runserver`
 
