@@ -46,7 +46,7 @@
               <a href="{% url 'logout' %}">Log Out</a>
             </li>
           {% else %}
-            <li><a href="">Register</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
         </ul>

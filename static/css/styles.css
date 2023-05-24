@@ -120,3 +120,7 @@ h3 span {
   list-style-type: none;
   gap: 16px;
 }
+
+.helptext, form li {
+  color: #808387;
+}
