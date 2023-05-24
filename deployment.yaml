@@ -14,7 +14,7 @@ spec:
       containers:
       - name: django-project
         image: krushilnaik/miniproject4kn:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "512Mi"
@@ -34,3 +34,23 @@ spec:
   ports:
   - port: 3000
     targetPort: 3000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: project-ingress
+  labels:
+    name: project-ingress
+spec:
+  rules:
+  - host: pytter.dj
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: django-project
+            port: 
+              number: 3000
