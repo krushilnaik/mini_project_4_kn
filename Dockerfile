@@ -21,10 +21,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Collect static files
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
 # Expose the port on which the Django application will run (replace with your Django app's port)
 EXPOSE 3000
 
 # Run the Django application
 CMD ["gunicorn", "--bind", "0.0.0.0:3000", "--workers", "4", "pytter_django.wsgi:application"]
+
+
+# FROM python:3.11-alpine
