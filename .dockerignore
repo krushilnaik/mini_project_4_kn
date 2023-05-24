@@ -1,0 +1,5 @@
+db.sqlite
+Dockerfile
+__pycache__
+*.md
+pylintrc
